@@ -24,7 +24,7 @@ public class Pedido {
     private Long id;
 
     @Column(nullable = false)
-    private ArrayList<ParClaves<Producto,Long>> detalle;
+    private ArrayList<ParClaves<Long,Long>> detalle;
 
     @Column(nullable = false)
     private EstadoPedido estadoPedido;
