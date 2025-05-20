@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +33,8 @@ public class Factura {
     @Column(nullable = false)
     private LocalDate fecha;
 
-    @Column(nullable = false)
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    @PrimaryKeyJoinColumn(name = "id_pedido", referencedColumnName = "id")
     private Pedido pedido;
 
     @Column(length = 15, nullable = false)
@@ -46,9 +46,8 @@ public class Factura {
     @Column(length = 15, nullable = false)
     private Double totalIva;
 
-    @Column(nullable = false)
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "detalle", referencedColumnName = "detalle")
+    @PrimaryKeyJoinColumn(name = "detalle", referencedColumnName = "detalle")
     private Pedido detalle;
 
 
