@@ -1,15 +1,19 @@
 package com.ventas.ventas.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ventas.ventas.dto.ProductoDto;
 
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,7 +45,9 @@ public class Factura {
     @Column(length = 15, nullable = false)
     private Double totalIva;
 
-    @Column(nullable = false)
-    private List<Par<ProductoDto, Long>> detalle;
+    @ElementCollection
+    @CollectionTable(name = "producto_cantidad", joinColumns = @JoinColumn(name = "id"))
+    @Column(nullable = false)    
+    private List<ProductoCantidad> productos = new ArrayList<>();
 
 }
