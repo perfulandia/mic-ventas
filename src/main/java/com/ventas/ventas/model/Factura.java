@@ -38,13 +38,13 @@ public class Factura {
     private LocalDate fecha;
 
     @Column(length = 15, nullable = false)
-    private Double subtotal;
+    private Long subtotal;
 
     @Column(length = 15, nullable = false)
-    private Double total;
+    private Long total;
 
     @Column(length = 15, nullable = false)
-    private Double totalIva;
+    private Long totalIva;
 
     @ElementCollection
     @CollectionTable(name = "producto_cantidad", joinColumns = @JoinColumn(name = "id"))
