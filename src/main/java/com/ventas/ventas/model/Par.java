@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ParClaves<X, Y> {
+public class Par<X, Y> {
 
     private X idProducto;
     private Y cantidad;
