@@ -28,6 +28,9 @@ public class Factura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private Long numPedido;
+
     @Column(length = 20, nullable = false)
     private String rutEmpresa;
 
