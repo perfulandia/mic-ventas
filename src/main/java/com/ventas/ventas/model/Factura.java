@@ -48,7 +48,16 @@ public class Factura {
 
     @ElementCollection
     @CollectionTable(name = "producto_cantidad", joinColumns = @JoinColumn(name = "id"))
-    @Column(nullable = false)    
-    private List<ProductoCantidad> productos = new ArrayList<>();
+    @Column(nullable = false)
+    private List<ProductoCantidad> productos;
 
+    public boolean isValid() {
+        if (this.numPedido != null
+                && this.rutEmpresa != null
+                && this.fecha != null
+                && productos != null) {
+            return true;
+        }
+        return false;
+    }
 }
