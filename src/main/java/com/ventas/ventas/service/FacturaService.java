@@ -2,6 +2,7 @@ package com.ventas.ventas.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -74,6 +75,39 @@ public class FacturaService {
 
         facturaRepository.save(nuevaFactura);
         return nuevaFactura;
+    }
+
+    public Optional<Factura> findById(Long id){
+        return facturaRepository.findById(id);
+    }
+
+    public List<Factura> findAllById(List<Long> ids){
+        return facturaRepository.findAllById(ids);
+    }
+
+    public Boolean existsById(Long id){
+        return facturaRepository.existsById(id);
+    }
+
+    public Factura save(Factura factura){
+        return facturaRepository.save(factura);
+    }
+
+    public Factura update(Long id, Factura factura){
+        Factura holder = facturaRepository.findById(id).get();
+
+        if (factura != null){
+            // los demas campos no deberian poder ser editables imo
+            holder.setNumPedido(factura.getNumPedido());
+            holder.setRutEmpresa(factura.getRutEmpresa());
+            return holder;
+        }
+        return null;
+
+    }
+
+    public void deleteById(Long id){
+        facturaRepository.deleteById(id);
     }
 
 }
