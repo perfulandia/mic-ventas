@@ -1,0 +1,11 @@
+meta {
+  name: get facturas
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:9001/api/v1/factura
+  body: none
+  auth: inherit
+}
