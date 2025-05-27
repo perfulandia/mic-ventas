@@ -1,0 +1,29 @@
+meta {
+  name: generar factura
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:9001/api/v1/factura
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "numPedido": 1,
+    "rutEmpresa": "12345678-9",
+    "fecha": "2025-02-21",
+    "productos": [
+      {
+        "idProducto": 4,
+        "cantidad": 2
+      },
+      {
+        "idProducto": 1,
+        "cantidad": 1
+      }
+    ]
+  }
+}
