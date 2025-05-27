@@ -1,0 +1,18 @@
+meta {
+  name: actualizar factura
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:9001/api/v1/factura/id/2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "numPedido": 3,
+    "rutEmpresa": "201030-2"
+  }
+}
